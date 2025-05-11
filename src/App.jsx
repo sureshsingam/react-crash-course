@@ -1,13 +1,15 @@
 
 import './App.css'
+import './components/PostsList'
+import PostsList from './components/PostsList'
 
 function App() {
 
 
   return (
     <main>
-      <h1>Hello World!</h1>
-      <p> Testing another change</p>
+      <PostsList />
+
     </main>
   
   )
