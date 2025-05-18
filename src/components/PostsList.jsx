@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Post from "./Post";
 import Modal from "./Modal";
@@ -10,12 +10,31 @@ import classes from './PostsList.module.css';
 function PostsList( {onStopPosting, isPosting}){
     const [posts, setPosts]= useState([]);
 
+    // get posts by fetching from endpoint
+    useEffect( () => {
+        async function fetchPosts(){
+            const response = await fetch('http://localhost:8080/posts');
+            const resData = await response.json();
+            setPosts(resData.posts);
+        }
+        fetchPosts();
+    }, []);
+    
+    
+
     function addPostHandler(postData){
         /*
         setPosts([postData, ...posts]);  // use spread operator to add new post to the beginning of the array
         // not optimal but works
         */
-
+       // send post data to endpoint
+        fetch('http://localhost:8080/posts',{
+            method:'POST',
+            body: JSON.stringify(postData),
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        });
         setPosts((existingPosts) =>  [postData, ...existingPosts]); 
         // use function to get the previous state and add new post to the beginning of the array
     }
