@@ -1,11 +1,10 @@
 .form {
-  background-color: hsl(261, 57%, 46%);
+  background-color: #6233b9;
   padding: 1rem;
   width: 20rem;
 }
 
 .form label {
-  text-align: left;
   display: block;
   margin-bottom: 0.05rem;
   color: #eadbfb;
@@ -14,7 +13,6 @@
 
 .form input,
 .form textarea {
-  text-align: left;
   display: block;
   width: 100%;
   font: inherit;
@@ -28,6 +26,7 @@
 .actions {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   gap: 0.5rem;
 }
 
@@ -45,10 +44,12 @@
   background-color: #23014a;
 }
 
-.actions button[type="button"] {
+.actions a {
   background-color: transparent;
+  text-decoration: none;
+  color: #e5d5f7;
 }
 
-.actions button[type="button"]:hover {
+.actions a:hover {
   color: #d1bee6;
 }
